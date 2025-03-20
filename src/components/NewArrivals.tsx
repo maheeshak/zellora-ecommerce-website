@@ -14,18 +14,19 @@ import Item from './Item';
 
 
 import { useEffect, useState } from 'react';
-import { products } from '../assets/data';
+import { products, Product } from '../assets/data';
 
 
 
 
 
 const NewArrivals = () => {
-  const [PopularProducts, setPopularProducts] = useState([])
+  const [PopularProducts, setPopularProducts] = useState<Product[]>([])
 
   useEffect(() => {
     const data = products.slice(0, 7);
-    console.log("data",data);
+    setPopularProducts(data);
+    console.log("data", data);
   
   }, [products]);
   return (
